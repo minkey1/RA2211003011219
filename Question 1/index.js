@@ -4,7 +4,7 @@ const { getTopUsers } = require("./services/userService");
 const { getTopPostsByComments, getLatestPosts } = require("./services/postService");
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
 initializeAuth();
 
@@ -35,4 +35,4 @@ app.get("/posts", async (req, res) => {
     }
 });
 
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
