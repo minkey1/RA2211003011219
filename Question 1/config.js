@@ -1,6 +1,20 @@
 const axios = require("axios");
 
+
+const clientID = "";
+const clientSecret = "";
+const ownerName = "";
+const ownerEmail = "";
+const rollNo = "";
+const companyName = "";
 const API_BASE_URL = "http://20.244.56.144/test";
+
+
+if (!clientID || !clientSecret || !ownerName || !ownerEmail || !rollNo || !companyName) {
+    console.error("❌ Please fill in the required fields in config.js");
+    process.exit(1);
+}
+
 let authToken = "";
 
 async function fetchAuthToken() {
@@ -8,12 +22,12 @@ async function fetchAuthToken() {
         console.log("🔄 Fetching authentication token...");
 
         const response = await axios.post(`${API_BASE_URL}/auth`, {
-            "companyName": "vansh",
-            "clientID": "0192a2d7-1d30-4626-8107-dad539aae53c",
-            "clientSecret": "PSppGoNwNWhDmoLT",
-            "ownerName": "Vansh",
-            "ownerEmail": "bharadwaj.vansh2004@gmail.com",
-            "rollNo": "RA2211003011219"
+            "companyName": companyName,
+            "clientID": clientID,
+            "clientSecret": clientSecret,
+            "ownerName": ownerName,
+            "ownerEmail": ownerEmail,
+            "rollNo": rollNo
         });
 
         authToken = response.data.access_token;
