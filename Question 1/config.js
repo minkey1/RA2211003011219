@@ -1,12 +1,13 @@
 const axios = require("axios");
 
+const API_BASE_URL = "http://20.244.56.144/test";
 let authToken = "";
 
 async function fetchAuthToken() {
     try {
         console.log("🔄 Fetching authentication token...");
 
-        const response = await axios.post("http://20.244.56.144/test/auth", {
+        const response = await axios.post(`${API_BASE_URL}/auth`, {
             "companyName": "vansh",
             "clientID": "0192a2d7-1d30-4626-8107-dad539aae53c",
             "clientSecret": "PSppGoNwNWhDmoLT",
